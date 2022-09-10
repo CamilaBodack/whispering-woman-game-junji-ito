@@ -40,11 +40,10 @@ public class Game extends Thread {
         answears.add("Vamos passear pelo jardim");
 
 
-        wellComeMitsu();
-        System.out.println("Mayumi pergunta: " + mayumi.ask(questions));
+        getMitsuAnswear();
 
     }
-        public static void wellComeMitsu() {
+        public static boolean getMitsuAnswear() {
             System.out.println("""
                         Seja bem vinda, Srta Mitsu ...
                         Minha filha possui uma condição a qual a impede ter de uma rotina normal ...
@@ -55,11 +54,24 @@ public class Game extends Thread {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Mitsu, deseja aceitar realmente esse emprego ? 1 - Sim | 2 - Não");
             int continuar = scanner.nextInt();
-            if (continuar != 1){
+            if (continuar != 1) {
+
+                return false;
+            }
+            return true;
+
+        }
+        public static void conversation(Mayumi mayumi, Mitsu mitsu, List<String> questions, List<String> answears) {
+            Scanner scanner = new Scanner(System.in);
+            if (!getMitsuAnswear()) {
                 System.out.println("Sem problemas, obrigada Srta Mitsu.");
+            } else {
+                mayumi.ask(questions);
+
             }
 
         }
+
 
 
 }
