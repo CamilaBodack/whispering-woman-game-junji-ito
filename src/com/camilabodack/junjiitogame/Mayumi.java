@@ -5,15 +5,10 @@ import java.util.Random;
 
 public class Mayumi {
 
-    public String ask(List<String> questions){
+    public String ask(List<String> questions) {
         Random random = new Random();
         String randomQuestion = questions.get(random.nextInt(questions.size()));
         return randomQuestion;
-        //return questions.get(randomQuestion);
-
-    }
-
-    public void listenAnswear(String question){
 
     }
 }

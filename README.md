@@ -8,7 +8,8 @@ Image credits: [Fairy Dharawat's Blog](https://fairydharawat.wordpress.com/2020/
 
 # Context
 
-A girl constantly asks what she should do, if the answear is not specific or detailed, she will continue asking and becoming unable to do anything.
+A girl constantly asks what she should do, if the answear is not specific or detailed, she will continue asking and
+becoming unable to do anything.
 
 # Goal
 
