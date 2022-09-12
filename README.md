@@ -17,7 +17,9 @@ Calm her and give her the properly answears, contributing to make her have norma
 
 # How to play ?
 
-Run 'Game.java' in an environment with Java version >= 17
+
+Run 'Game.java' 
+Tested with Java 18.
 
 # References
 
