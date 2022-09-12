@@ -15,6 +15,10 @@ becoming unable to do anything.
 
 Calm her and give her the properly answears, contributing to make her have normal routine.
 
+# How to play ?
+
+Run 'Game.java' in an environment with Java version >= 17
+
 # References
 
 - [Junji Ito Wiki - Whispering Woman](https://junjiitomanga.fandom.com/wiki/Whispering_Woman)
