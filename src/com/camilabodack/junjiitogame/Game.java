@@ -32,6 +32,7 @@ public class Game {
 
     public static boolean getMitsuAnswear() {
         System.out.println("""
+                    \n
                     Seja bem vinda, Srta Mitsu ...
                     Minha filha possui uma característica bastante peculiar  ...
                     Ela faz diversas perguntas as quais se não forem respondidas corretamente...
@@ -52,7 +53,17 @@ public class Game {
             System.out.println("Sem problemas, obrigada Srta Mitsu.");
             System.exit(0);
         } else {
-
+            System.out.print("""
+                    \n
+                    O Jogo é composto por 5 perguntas que serão feitas pela Mayumi. 
+                    Vencerá caso consiga orienta-la corretamente em 3 ou mais respostas.
+                    -----------------------------------------------------------------------------                    
+                    Dê informações bem definidas para as perguntas por exemplo:
+                    'Devo andar ?'
+                    Resposta: Sim, caminhe dando pequenos passos e devagar para não se machucar.
+                    ------------------------------------------------------------------------------
+                    \n
+                    """);
             for (int i = 0; i < 5; i++) {
                 String question = mayumi.ask(questions);
                 System.out.println(question);
@@ -62,7 +73,7 @@ public class Game {
                 if (correctAnswear) {
                     System.out.println("Mayumi: ... Assim ? E agora o que devo fazer ?");
                     System.out.println("\nMitsu: ... Preste atenção ... Psss ... Psss\n");
-                    System.out.println("\nMitsu: .... Pss ... pss ...  psss ...\n");
+                    System.out.println("Mitsu: .... Pss ... pss ...  psss ...");
                     countCorrectInstructions++;
 
                 }
@@ -70,21 +81,20 @@ public class Game {
 
             if (countCorrectInstructions < 3) {
                 System.out.println("""
-                            Shigeki Santo (Pai da Mayumi):
-                            A Srta Mayumi encontra-se paralisada devido ao estresse.
-                            Agradecemos a sua tentativa de ajudá-la.
-                            """);
+                        Shigeki Santo (Pai da Mayumi):
+                        A Srta Mayumi encontra-se paralisada devido ao estresse.
+                        Agradecemos a sua tentativa de ajudá-la.
+                        """);
                 System.exit(0);
             } else {
                 System.out.println("""
-                            \n
-                            \n
-                            Shikeki Santo (Pai da Mayumi):
-                            Estou impressionado com as suas habilidades.
-                            É incrível a força mental que você possui...
-                            Você esta trazendo sorte a Mayumi também...
-                            Obrigada por aceitar esse trabalho e fazê-lo tão bem.
-                            """);
+                        \n
+                        Shikeki Santo (Pai da Mayumi):
+                        Estou impressionado com as suas habilidades.
+                        É incrível a força mental que você possui...
+                        Você esta trazendo sorte a Mayumi também...
+                        Obrigada por aceitar esse trabalho e fazê-lo tão bem.
+                        """);
             }
 
         }
@@ -92,43 +102,44 @@ public class Game {
 
     public static boolean checkMitsuInstructions(String mayumiQuestion, String mitsuAnswear) {
         String question = mayumiQuestion.toLowerCase();
+        String checkAnswear = mitsuAnswear.toLowerCase();
         boolean correctInstruction;
         switch (question) {
             case "devo andar ?":
-                correctInstruction = mitsuAnswear.matches("^.*(andar|devagar|passos|).*$");
+                correctInstruction = checkAnswear.matches("^.*(andar|devagar|passos|).*$");
                 break;
             case "devo correr ?":
-                correctInstruction = mitsuAnswear.matches("^.*(n[ãa]o|caminh[ear]|cuidado)+.*$");
+                correctInstruction = checkAnswear.matches("^.*(n[ãa]o|caminh[ear]|cuidado)+.*$");
                 break;
             case "devo sentar ?":
-                correctInstruction = mitsuAnswear.matches("^.*(sim|cadeira)+.*$");
+                correctInstruction = checkAnswear.matches("^.*(sim|cadeira)+.*$");
                 break;
             case "posso piscar ?":
-                correctInstruction = mitsuAnswear.matches("^.*(sim|olhos|palpebra|devagar)+.*$");
+                correctInstruction = checkAnswear.matches("^.*(sim|olhos|palpebra)+.*$");
                 break;
             case "posso me levantar ?":
-                correctInstruction = mitsuAnswear.matches("^.*(sim|n[aã]o|devagar).*$");
+                correctInstruction = checkAnswear.matches("^.*(sim|n[aã]o|devagar).*$");
                 break;
             case "devo dormir ?":
-                correctInstruction = mitsuAnswear.matches("^.*(sim|n[aã]o)+.*$");
+                correctInstruction = checkAnswear.matches("^.*(sim|n[aã]o)+.*$");
                 break;
             case "suco de laranja, de maçã, de uva ? qual devo beber ?":
-                correctInstruction = mitsuAnswear.matches("^.*(sim|n[ãa]o|suco|copo|beber)+.*$");
+                correctInstruction = checkAnswear.matches("^.*(sim|n[ãa]o|suco|copo|beber)+.*$");
                 break;
             case "posso respirar ?":
-                correctInstruction = mitsuAnswear.matches("^.*(sim|devagar|calma)+.*$");
+                correctInstruction = checkAnswear.matches("^.*(sim|devagar|calma)+.*$");
                 break;
             case "agora posso rir ? ou chorar ?":
-                correctInstruction = mitsuAnswear.matches("^.*rir.*$");
+                correctInstruction = checkAnswear.matches("^.*rir.*$");
                 break;
             case "devo jantar ?":
-                correctInstruction = mitsuAnswear.matches("^.*sim+.*hora+.*$");
+                correctInstruction = checkAnswear.matches("^.*sim+.*hora+.*$");
                 break;
             case "devo ficar de pé ?":
-                correctInstruction = mitsuAnswear.matches("^.*(sim|n[ãa]o)+.*$");
+                correctInstruction = checkAnswear.matches("^.*(sim|n[ãa]o)+.*$");
                 break;
             case "devo passar manteiga ou geléia no pão ?":
-                correctInstruction = mitsuAnswear.matches("^.*(manteiga|gel[ée]ia|quantidade)+.*$");
+                correctInstruction = checkAnswear.matches("^.*(manteiga|gel[ée]ia|quantidade)+.*$");
                 break;
             default:
                 correctInstruction = false;
