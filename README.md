@@ -13,12 +13,13 @@ becoming unable to do anything.
 
 # Goal
 
-Calm her and give her the properly answears, contributing to make her have normal routine.
+Calm her and give her the properly answers, contributing to make her have normal routine.
 
 # How to play ?
 
 
-Run 'Game.java' 
+Run 'Game.java'.
+
 Tested with Java 18.
 
 # References
