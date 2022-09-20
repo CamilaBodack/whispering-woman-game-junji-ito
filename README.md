@@ -17,7 +17,6 @@ Calm her and give her the properly answers, contributing to make her have normal
 
 # How to play ?
 
-
 Run 'Game.java'.
 
 Tested with Java 18.

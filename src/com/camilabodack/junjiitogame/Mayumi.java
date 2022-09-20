@@ -5,9 +5,9 @@ import java.util.Random;
 
 public class Mayumi {
 
-    public String ask(List<String> questions) {
+    public Phrase ask(List<Phrase> questions) {
         Random random = new Random();
-        String randomQuestion = questions.get(random.nextInt(questions.size()));
+        Phrase randomQuestion = questions.get(random.nextInt(questions.size()));
         return randomQuestion;
 
     }

@@ -1,6 +1,6 @@
 package com.camilabodack.junjiitogame;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,21 +11,7 @@ public class Game {
         Mayumi mayumi = new Mayumi();
         Mitsu mitsu = new Mitsu();
 
-        List<String> questions = new ArrayList<>();
-
-        questions.add("Devo andar ?");
-        questions.add("Devo correr ?");
-        questions.add("Possor sentar ?");
-        questions.add("Posso piscar ?");
-        questions.add("Posso me levantar ?");
-        questions.add("Devo dormir ?");
-        questions.add("Suco de laranja, de maçã, de uva ? qual devo beber ?");
-        questions.add("Posso respirar ?");
-        questions.add("Agora posso rir ? Ou chorar ?");
-        questions.add("Devo jantar ?");
-        questions.add("Devo ficar de pé ?");
-        questions.add("Devo passar manteiga ou geléia no pão ?");
-
+        List<Phrase> questions = Arrays.asList(Phrase.values());
         conversation(mayumi, mitsu, questions);
 
     }
@@ -45,7 +31,7 @@ public class Game {
         return continuar == 1;
     }
 
-    public static void conversation(Mayumi mayumi, Mitsu mitsu, List<String> questions) {
+    public static void conversation(Mayumi mayumi, Mitsu mitsu, List<Phrase> questions) {
         int countCorrectInstructions = 0;
         boolean acceptService = getMitsuAnswear();
 
@@ -65,7 +51,7 @@ public class Game {
                     \n
                     """);
             for (int i = 0; i < 5; i++) {
-                String question = mayumi.ask(questions);
+                Phrase question = mayumi.ask(questions);
                 System.out.println(question);
                 String mitsuAnswear = mitsu.answear();
                 boolean correctAnswear = checkMitsuInstructions(question, mitsuAnswear);
@@ -100,45 +86,45 @@ public class Game {
         }
     }
 
-    public static boolean checkMitsuInstructions(String mayumiQuestion, String mitsuAnswear) {
-        String question = mayumiQuestion.toLowerCase();
+    public static boolean checkMitsuInstructions(Phrase mayumiQuestion, String mitsuAnswear) {
+        Phrase question = mayumiQuestion;
         String checkAnswear = mitsuAnswear.toLowerCase();
         boolean correctInstruction;
         switch (question) {
-            case "devo andar ?":
-                correctInstruction = checkAnswear.matches("^.*(andar|devagar|passos|).*$");
+            case ANDAR:
+                correctInstruction = checkAnswear.matches("^.*(andar|devagar|passos).*$");
                 break;
-            case "devo correr ?":
+            case CORRER:
                 correctInstruction = checkAnswear.matches("^.*(n[ãa]o|caminh[ear]|cuidado)+.*$");
                 break;
-            case "devo sentar ?":
-                correctInstruction = checkAnswear.matches("^.*(sim|cadeira)+.*$");
+            case SENTAR:
+                correctInstruction = checkAnswear.matches("^.*(sim|cadeira)+.+$");
                 break;
-            case "posso piscar ?":
-                correctInstruction = checkAnswear.matches("^.*(sim|olhos|palpebra)+.*$");
+            case PISCAR:
+                correctInstruction = checkAnswear.matches("^.*(sim|olhos|palpebra)+.+$");
                 break;
-            case "posso me levantar ?":
-                correctInstruction = checkAnswear.matches("^.*(sim|n[aã]o|devagar).*$");
+            case LEVANTAR:
+                correctInstruction = checkAnswear.matches("^.*(sim|n[aã]o|devagar).+$");
                 break;
-            case "devo dormir ?":
-                correctInstruction = checkAnswear.matches("^.*(sim|n[aã]o)+.*$");
+            case DORMIR:
+                correctInstruction = checkAnswear.matches("^.*(sim|n[aã]o)+.+$");
                 break;
-            case "suco de laranja, de maçã, de uva ? qual devo beber ?":
+            case SUCO:
                 correctInstruction = checkAnswear.matches("^.*(sim|n[ãa]o|suco|copo|beber)+.*$");
                 break;
-            case "posso respirar ?":
+            case RESPIRAR:
                 correctInstruction = checkAnswear.matches("^.*(sim|devagar|calma)+.*$");
                 break;
-            case "agora posso rir ? ou chorar ?":
+            case RIR:
                 correctInstruction = checkAnswear.matches("^.*rir.*$");
                 break;
-            case "devo jantar ?":
+            case JANTAR:
                 correctInstruction = checkAnswear.matches("^.*sim+.*hora+.*$");
                 break;
-            case "devo ficar de pé ?":
+            case PE:
                 correctInstruction = checkAnswear.matches("^.*(sim|n[ãa]o)+.*$");
                 break;
-            case "devo passar manteiga ou geléia no pão ?":
+            case COMER:
                 correctInstruction = checkAnswear.matches("^.*(manteiga|gel[ée]ia|quantidade)+.*$");
                 break;
             default:
